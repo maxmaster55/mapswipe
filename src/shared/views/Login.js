@@ -199,7 +199,7 @@ class _Login extends React.Component<Props, State> {
         const { firebase, navigation, t } = this.props;
         const { email, password, username } = this.state;
         const parent = this;
-        if (username !== null && username.length < MIN_USERNAME_LENGTH) {
+        if (username !== null && (username.length < MIN_USERNAME_LENGTH || username.includes(" "))) {
             MessageBarManager.showAlert({
                 title: t('signup:errorOnSignup'),
                 message: t('signup:usernameErrorMessage'),
